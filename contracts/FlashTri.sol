@@ -46,14 +46,16 @@ contract ArbitrageFlashLoan {
     address private immutable owner;
     address private immutable lendingPool;
     // address private constant PANCAKESWAP_ROUTER = 0xD99D1c33F9fC3444f8101754aBC46c52416550D1; // PancakeSwap V2 Router (BNB Testnet)
+    address private PANCAKESWAP_ROUTER;
     address private constant UNISWAP_ROUTER = address(0); // No Uniswap on BNB Testnet
     
     IUniswapV2Router private immutable pancakeswapRouter;
     IUniswapV2Router private immutable uniswapRouter;
     
-    constructor(address _lendingPool, address PANCAKESWAP_ROUTER) {
+    constructor(address _lendingPool, address _PANCAKESWAP_ROUTER) {
         owner = msg.sender;
         lendingPool = _lendingPool;
+        PANCAKESWAP_ROUTER = _PANCAKESWAP_ROUTER;
         pancakeswapRouter = IUniswapV2Router(PANCAKESWAP_ROUTER);
         uniswapRouter = IUniswapV2Router(UNISWAP_ROUTER);
     }
@@ -166,9 +168,10 @@ contract ArbitrageFlashLoan {
         path[0] = _tokenIn;
         path[1] = _tokenOut;
 
-        console.log("executeTrade")
-        console.log(_amountIn)
-        console.log(path)
+        console.log("executeTrade");
+        console.log(_amountIn);
+        console.log(path[0]);
+        console.log(path[1]);
         
         uint[] memory amounts = IUniswapV2Router(
             _isUniswap ? UNISWAP_ROUTER : PANCAKESWAP_ROUTER
@@ -180,7 +183,7 @@ contract ArbitrageFlashLoan {
             block.timestamp + 300
         );
 
-        console.log("after swapExactTokensForTokens")
+        console.log("after swapExactTokensForTokens");
         
         return amounts[1];
     }

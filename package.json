@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "fork": "hardhat node --network hardhat",
     "test": "hardhat test --network local",
-    "_fork-bnbt": "hardhat node --fork https://data-seed-prebsc-1-s1.binance.org:8545 --show-stack-traces",
-    "fork-bnbt": "hardhat node --fork https://bsc-dataseed1.ninicoin.io --show-stack-traces",
-    "deploy-test": "hardhat run scripts/deploy.js --network testnet"
+    "deploy-test": "hardhat run scripts/deploy.js --network local"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +15,9 @@
   "dependencies": {
     "@openzeppelin/contracts": "^5.3.0",
     "@openzeppelin/hardhat-upgrades": "^3.9.0",
+    "@pancakeswap/sdk": "^5.8.14",
+    "@pancakeswap/smart-router": "^7.2.5",
+    "@pancakeswap/tokens": "^0.7.5",
     "hardhat": "^2.24.0"
   },
   "devDependencies": {
