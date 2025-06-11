@@ -9,21 +9,15 @@ async function main() {
   const [deployer] = await hre.ethers.getSigners();
   console.log("Deploying contracts with account:", deployer.address);
 
-  // // Optional: Deploy mock lending pool if needed
-  // const MockLendingPool = await hre.ethers.getContractFactory("MockLendingPool");
-  // const mockLendingPool = await MockLendingPool.deploy();
-  // await mockLendingPool.deployed();
-  // console.log("MockLendingPool deployed to:", mockLendingPool.address);
-
-  // const ArbitrageFlashLoan = await hre.ethers.getContractFactory("ArbitrageFlashLoan");
-  // const arbitrage = await ArbitrageFlashLoan.deploy();
-  
-  // await arbitrage.deployed();
-  // console.log("ArbitrageFlashLoan deployed to:", arbitrage.address);
+  // const SimpleTest = await hre.ethers.getContractFactory("SimpleTest");
+  // const test = await SimpleTest.deploy()
+  // await test.waitForDeployment();
+  // console.log("SimpleTest deployed to:", await test.getAddress());
 
   const FlashLoadSmartRouter = await hre.ethers.getContractFactory("FlashLoadSmartRouter");
   const router = await FlashLoadSmartRouter.deploy(smartRouterAddress)
-  console.log("FlashLoadSmartRouter deployed to:", router.address);
+  await router.waitForDeployment();
+  console.log("FlashLoadSmartRouter deployed to:", await router.getAddress());
 }
 
 main()
