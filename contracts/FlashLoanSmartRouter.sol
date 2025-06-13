@@ -35,7 +35,7 @@ contract FlashLoadSmartRouter {
         uint midBalance = IERC20(midCoinAddress).balanceOf(address(this));
         console.log(midBalance);
         // get and transfer balance
-        IERC20(midCoinAddress).transferFrom(address(this), smartRouterAddress, midBalance);
+        IERC20(midCoinAddress).transfer(smartRouterAddress, midBalance);
         console.log("trade transfer ok");
         // Perform low-level call with value and calldata
         // TODO: get amountReceived from returnData?
