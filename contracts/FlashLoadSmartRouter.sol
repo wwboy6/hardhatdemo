@@ -46,7 +46,7 @@ contract FlashLoadSmartRouter {
         uint finalBalance = IERC20(inCoinAddress).balanceOf(address(this));
         IERC20(inCoinAddress).transfer(msg.sender, finalBalance);
         console.log("trade transfer ok");
-        console.log(finalBalance)
+        console.log(finalBalance);
         // TODO: check if profitable
     }
 }
