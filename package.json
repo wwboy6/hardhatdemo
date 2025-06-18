@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "fork": "hardhat node --network hardhat",
+    "_fork": "hardhat node --network hardhat",
+    "fork": "anvil -f https://56.rpc.thirdweb.com",
     "test": "hardhat test --network local",
-    "deploy-test": "hardhat run scripts/deploy.js --network local"
+    "deploy-test": "hardhat run scripts/deploy.js --network local",
+    "deploy-prod": "hardhat run scripts/deploy.js --network mainnet"
   },
   "keywords": [],
   "author": "",

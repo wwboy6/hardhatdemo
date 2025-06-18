@@ -25,7 +25,8 @@ module.exports = {
   networks: {
     hardhat: {
       forking: {
-        url: `https://bsc-mainnet.infura.io/v3/${INFURA_KEY}`,
+        // url: `https://bsc-mainnet.infura.io/v3/${INFURA_KEY}`,
+        url: `https://56.rpc.thirdweb.com`,
         enabled: true
       },
       hardfork: "london", // Closest Ethereum hardfork to BSC’s recent rules
@@ -46,7 +47,7 @@ module.exports = {
       ],
     },
     mainnet: {
-      url: "https://bsc-dataseed.binance.org/",
+      url: "https://56.rpc.thirdweb.com",
       chainId: 56,
       accounts: [
         // FIXME: another account to test transfer

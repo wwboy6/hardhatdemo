@@ -19,10 +19,18 @@ async function main() {
   // await router.waitForDeployment();
   // console.log("FlashLoadSmartRouter deployed to:", await router.getAddress());
 
+  const balance0 = await hre.ethers.provider.getBalance(deployer.address)
+  console.log(`balance0 ${balance0}`)
+
   const PancakeswapArbitrage = await hre.ethers.getContractFactory("PancakeswapArbitrage");
   const router = await PancakeswapArbitrage.deploy(smartRouterAddress)
   await router.waitForDeployment();
   console.log("PancakeswapArbitrage deployed to:", await router.getAddress());
+
+  const balance1 = await hre.ethers.provider.getBalance(deployer.address)
+  const currencyInHkd = 5062
+  const balanceDiff = Number(hre.ethers.formatEther(balance0 - balance1))
+  console.log('balance used', balanceDiff, balanceDiff*currencyInHkd)
 }
 
 main()

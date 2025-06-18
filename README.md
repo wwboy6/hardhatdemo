@@ -11,3 +11,7 @@ REPORT_GAS=true npx hardhat test
 npx hardhat node
 npx hardhat ignition deploy ./ignition/modules/Lock.js
 ```
+
+# Deployed contract
+
+2025/06/18 11:57 0xca0cc700F5DbFF1662d03a64361600Caa3DA8fd7
