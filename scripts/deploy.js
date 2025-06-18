@@ -14,10 +14,15 @@ async function main() {
   // await test.waitForDeployment();
   // console.log("SimpleTest deployed to:", await test.getAddress());
 
-  const FlashLoadSmartRouter = await hre.ethers.getContractFactory("FlashLoadSmartRouter");
-  const router = await FlashLoadSmartRouter.deploy(smartRouterAddress)
+  // const FlashLoadSmartRouter = await hre.ethers.getContractFactory("FlashLoadSmartRouter");
+  // const router = await FlashLoadSmartRouter.deploy(smartRouterAddress)
+  // await router.waitForDeployment();
+  // console.log("FlashLoadSmartRouter deployed to:", await router.getAddress());
+
+  const PancakeswapArbitrage = await hre.ethers.getContractFactory("PancakeswapArbitrage");
+  const router = await PancakeswapArbitrage.deploy(smartRouterAddress)
   await router.waitForDeployment();
-  console.log("FlashLoadSmartRouter deployed to:", await router.getAddress());
+  console.log("PancakeswapArbitrage deployed to:", await router.getAddress());
 }
 
 main()
