@@ -4,8 +4,8 @@ const { ethers } = require("hardhat");
 const { bscTokens } = require('@pancakeswap/tokens');
 const ERC20 = require("@openzeppelin/contracts/build/contracts/ERC20.json");
 
-describe.only("ArbitrageFlashLoan with MockLendingPool on BNB Testnet Fork", function () {
-    it.only("read balance", async function () {
+describe("ArbitrageFlashLoan with MockLendingPool on BNB Testnet Fork", function () {
+    it("read balance", async function () {
         const [addr1, addr2] = await ethers.getSigners();
         let balance = await ethers.provider.getBalance(addr1)
         console.log("addr1 eth", balance);
@@ -29,7 +29,7 @@ describe.only("ArbitrageFlashLoan with MockLendingPool on BNB Testnet Fork", fun
         // console.log("addr2 eth", balance);
         expect(balance).equals(orignialBalance + amountToSend);
     })
-    it.only("check balance of a ERC20 token", async function () {
+    it("check balance of a ERC20 token", async function () {
         const [addr1, addr2] = await ethers.getSigners();
         const tokenContract = new ethers.Contract(bscTokens.usdt.address, ERC20.abi, ethers.provider);
         const balanceRaw = await tokenContract.balanceOf(addr2.address);
@@ -38,7 +38,7 @@ describe.only("ArbitrageFlashLoan with MockLendingPool on BNB Testnet Fork", fun
         console.log("ERC20 token for signer", balance);
         console.log("balanceRaw", balanceRaw);
     })
-    it.only("approve ERC20 token", async function () {
+    it("approve ERC20 token", async function () {
         const [addr1, addr2] = await ethers.getSigners();
         let tokenContract = new ethers.Contract(bscTokens.usdt.address, ERC20.abi, ethers.provider);
         tokenContract = tokenContract.connect(addr2)
