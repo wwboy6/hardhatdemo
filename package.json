@@ -20,7 +20,10 @@
     "@pancakeswap/sdk": "^5.8.14",
     "@pancakeswap/smart-router": "^7.2.5",
     "@pancakeswap/tokens": "^0.7.5",
-    "hardhat": "^2.24.0"
+    "@uniswap/universal-router": "^2.0.0",
+    "@uniswap/v3-core": "^1.0.1",
+    "@uniswap/v4-periphery": "^1.0.2",
+    "hardhat": "^2.24.3"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0"
