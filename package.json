@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "_fork": "hardhat node --network hardhat",
-    "fork": "anvil -f https://56.rpc.thirdweb.com",
+    "fork": "anvil -f https://api.zan.top/node/v1/bsc/mainnet/a0a434df667a4ac78777700b384d7c83",
     "test": "hardhat test --network local",
     "deploy-test": "hardhat run scripts/deploy.js --network local",
     "deploy-prod": "hardhat run scripts/deploy.js --network mainnet"
