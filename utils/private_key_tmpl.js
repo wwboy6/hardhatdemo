@@ -1,5 +1,9 @@
-PRIVATE_KEY = "0x...ENTER YOUR PRIVATE KEY HERE";
+const PRIVATE_KEY = "";
+const INFURA_KEY = "";
+const ZAN_API_KEY = ""
 
 module.exports = {
   PRIVATE_KEY,
+  INFURA_KEY,
+  ZAN_API_KEY,
 };
