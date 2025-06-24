@@ -25,6 +25,12 @@ CommandType = {
 
 }
 
+// const pancakeswapUniversalRouter = "0xd9C500DfF816a1Da21A48A732d3498Bf09dc9AEB" // V4
+const pancakeswapUniversalRouter = "0x1A0A18AC4BECDDbd6389559687d1A73d8927E416" // V3
+const uniswapUniversalRouter = "0x1906c1d672b88cd1b9ac7593301ca990f94eae07"
+
 module.exports = {
-  CommandType
+  CommandType,
+  pancakeswapUniversalRouter,
+  uniswapUniversalRouter,
 }

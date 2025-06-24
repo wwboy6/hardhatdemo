@@ -5,8 +5,20 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "command": "npm test",
-      "name": "Run npm test",
+      "command": "npx hardhat test --bail --network local ./test/PreparePoolSetup.test.js",
+      "name": "Test PreparePoolSetup",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
+      "command": "npx hardhat test --bail --network local ./test/UniversalArbitrage.test.js",
+      "name": "Test UniversalArbitrage",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
+      "command": "npx hardhat test --bail --network local ./test/simple.test.js",
+      "name": "Test Simple",
       "request": "launch",
       "type": "node-terminal"
     }

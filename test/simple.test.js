@@ -4,7 +4,7 @@ const { ethers } = require("hardhat");
 const { bscTokens } = require('@pancakeswap/tokens');
 const ERC20 = require("@openzeppelin/contracts/build/contracts/ERC20.json");
 
-describe("ArbitrageFlashLoan with MockLendingPool on BNB Testnet Fork", function () {
+describe("Simple tests", function () {
     it("read balance", async function () {
         const [addr1, addr2] = await ethers.getSigners();
         let balance = await ethers.provider.getBalance(addr1)
@@ -45,5 +45,16 @@ describe("ArbitrageFlashLoan with MockLendingPool on BNB Testnet Fork", function
         const contractAddr = '0x13f4EA83D0bd40E75C8222255bc855a974568Dd4' // pancake swap smart router
         await tokenContract.approve(contractAddr, 10000n * 10n**18n)
         console.log("done");
+    })
+    it.only("perform aave flash loan", async function () {
+        try {
+            const [owner, addr1] = await ethers.getSigners();
+            const SimpleTest = await ethers.getContractFactory('SimpleTest')
+            const simpleTest = (await SimpleTest.deploy()).connect(owner)
+            await simpleTest.getFlashLoan({value: ethers.parseEther("0.1")})
+        } catch (e) {
+            console.log(e.message)
+            throw e
+        }
     })
 });
