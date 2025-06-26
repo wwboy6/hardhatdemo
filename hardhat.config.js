@@ -1,5 +1,5 @@
 require("@nomicfoundation/hardhat-toolbox");
-const { PRIVATE_KEY, INFURA_KEY } = require("./utils/private_key");
+const { PRIVATE_KEY, INFURA_KEY, ZAN_API_KEY } = require("./utils/private_key");
 
 // This is a sample Hardhat task. To learn how to create your own go to
 // https://hardhat.org/guides/create-task.html
@@ -26,7 +26,8 @@ module.exports = {
     hardhat: {
       forking: {
         // url: `https://bsc-mainnet.infura.io/v3/${INFURA_KEY}`,
-        url: `https://56.rpc.thirdweb.com`,
+        // url: `https://56.rpc.thirdweb.com`,
+        url: `https://api.zan.top/node/v1/bsc/mainnet/${ZAN_API_KEY}`,
         enabled: true
       },
       hardfork: "london", // Closest Ethereum hardfork to BSC’s recent rules
@@ -55,7 +56,8 @@ module.exports = {
       ],
     },
     mainnet: {
-      url: "https://56.rpc.thirdweb.com",
+      // url: "https://56.rpc.thirdweb.com",
+      url: `https://api.zan.top/node/v1/bsc/mainnet/${ZAN_API_KEY}`,
       chainId: 56,
       accounts: [
         // FIXME: another account to test transfer

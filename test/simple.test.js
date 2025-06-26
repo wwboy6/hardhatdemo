@@ -46,7 +46,7 @@ describe("Simple tests", function () {
         await tokenContract.approve(contractAddr, 10000n * 10n**18n)
         console.log("done");
     })
-    it.only("perform aave flash loan", async function () {
+    it("perform aave flash loan", async function () {
         try {
             const [owner, addr1] = await ethers.getSigners();
             const SimpleTest = await ethers.getContractFactory('SimpleTest')
