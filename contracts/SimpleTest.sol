@@ -2,11 +2,14 @@
 pragma solidity ^0.8.28;
 
 import "./aave.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 import "hardhat/console.sol";
 
-contract SimpleTest {
+contract SimpleTest is Ownable {
     IAavePoolAddressesProvider loanPoolProvider = IAavePoolAddressesProvider(0xff75B6da14FfbbfD355Daf7a2731456b3562Ba6D);
+
+    constructor() Ownable(msg.sender) {}
 
     function test(address to) external pure returns (address _to) {
         console.log(to);
@@ -64,5 +67,25 @@ contract SimpleTest {
 
         // IERC20(tokenIn).approve(address(msg.sender), amount + premium);
         return true;
+    }
+
+    function delegatecallCheckOwner() external payable returns (bool success, bytes memory data) {
+        (success, data) = address(this).delegatecall(abi.encodeWithSignature("checkOwner()"));
+    }
+
+    function checkOwner() external payable returns (uint256) {
+        console.log("checkOwner");
+        console.log(msg.value);
+        if (_msgSender() != msg.sender) {
+            console.log("another sender?");
+            console.log(_msgSender());
+            console.log(msg.sender);
+        }
+        if (_msgSender() == owner()) {
+            console.log("isOwner");
+        } else {
+            console.log("not owner");
+        }
+        return 987;
     }
 }

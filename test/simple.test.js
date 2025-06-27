@@ -5,6 +5,7 @@ const { bscTokens } = require('@pancakeswap/tokens');
 const ERC20 = require("@openzeppelin/contracts/build/contracts/ERC20.json");
 
 describe("Simple tests", function () {
+    let SimpleTest, simpleTest
     it("read balance", async function () {
         const [addr1, addr2] = await ethers.getSigners();
         let balance = await ethers.provider.getBalance(addr1)
@@ -46,15 +47,22 @@ describe("Simple tests", function () {
         await tokenContract.approve(contractAddr, 10000n * 10n**18n)
         console.log("done");
     })
+    it("deploy SimpleTest", async function () {
+        const [owner, addr1] = await ethers.getSigners();
+        SimpleTest = await ethers.getContractFactory('SimpleTest')
+        simpleTest = await SimpleTest.deploy()
+        simpleTest = simpleTest.connect(owner)
+    })
     it("perform aave flash loan", async function () {
         try {
-            const [owner, addr1] = await ethers.getSigners();
-            const SimpleTest = await ethers.getContractFactory('SimpleTest')
-            const simpleTest = (await SimpleTest.deploy()).connect(owner)
             await simpleTest.getFlashLoan({value: ethers.parseEther("0.1")})
         } catch (e) {
             console.log(e.message)
             throw e
         }
+    })
+    it("calls delegatecallCheckOwner", async function () {
+        const result = await simpleTest.delegatecallCheckOwner.staticCall({value: 1n})
+        console.log(result)
     })
 });

@@ -26,3 +26,4 @@ ignition/deployments/chain-31337
 UniversalArbitrage*
 /test/PreparePoolSetup.test.js
 /run-anvil.sh
+/contracts/BatchUtil.sol
