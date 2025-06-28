@@ -25,6 +25,7 @@
     "hardhat": "^2.24.3"
   },
   "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^5.0.0"
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "chai-bignumber": "^3.1.0"
   }
 }

@@ -40,7 +40,8 @@ async function main() {
   console.log("UniversalArbitrage deployed to:", await router.getAddress());
 
   const balance1 = await hre.ethers.provider.getBalance(deployer.address)
-  const currencyInHkd = 5062
+  const currencyInUsd = 647
+  const currencyInHkd = currencyInUsd * 7.8
   const balanceDiff = Number(hre.ethers.formatEther(balance0 - balance1))
   console.log('balance used', balanceDiff, balanceDiff*currencyInHkd)
 }

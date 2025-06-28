@@ -39,6 +39,9 @@ importers:
       '@nomicfoundation/hardhat-toolbox':
         specifier: ^5.0.0
         version: 5.0.0(0e5e0e432878fd44e1c6443ab26d7922)
+      chai-bignumber:
+        specifier: ^3.1.0
+        version: 3.1.0
 
 packages:
 
@@ -1181,6 +1184,9 @@ packages:
     resolution: {integrity: sha512-aBDHZxRzYnUYuIAIPBH2s511DjlKPzXNlXSGFC8CwmroWQLfrW0LtE1nK3MAwwNhJPa9raEjNCmRoFpG0Hurdw==}
     peerDependencies:
       chai: '>= 2.1.2 < 6'
+
+  chai-bignumber@3.1.0:
+    resolution: {integrity: sha512-omxEc80jAU+pZwRmoWr3aEzeLad4JW3iBhLRQlgISvghBdIxrMT7mVAGsDz4WSyCkKowENshH2j9OABAhld7QQ==}
 
   chai@4.5.0:
     resolution: {integrity: sha512-RITGBfijLkBddZvnn8jdqoTypxvqbOLYQkGGxXzeFjVHvudaPw0HNFD9x928/eUwYWd2dPCugVqspGALTZZQKw==}
@@ -4603,6 +4609,8 @@ snapshots:
     dependencies:
       chai: 4.5.0
       check-error: 1.0.3
+
+  chai-bignumber@3.1.0: {}
 
   chai@4.5.0:
     dependencies:
