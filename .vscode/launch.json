@@ -21,6 +21,12 @@
       "name": "Test Simple",
       "request": "launch",
       "type": "node-terminal"
+    },
+    {
+      "command": "npx hardhat test --bail --network local ./test/study-block.test.js",
+      "name": "Block",
+      "request": "launch",
+      "type": "node-terminal"
     }
   ]
 }
