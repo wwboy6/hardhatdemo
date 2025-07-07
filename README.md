@@ -20,7 +20,10 @@ ArbitrageFlashLoan (FlashLoadSmartRouter)
 
 ## Review
 
+The contract function work as expected. For next part, protential trade routes would be searched.
+https://github.com/wwboy6/arbitrage-trading
+
 This approach is then replaced by Universal Router (Part 3).
-https://github.com/wwboy6/arbitrage-trading2.git
+https://github.com/wwboy6/arbitrage-trading2
 
 A script is added to study part 3 attack failure (study-block.test.js)
